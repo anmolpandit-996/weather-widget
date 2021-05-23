@@ -10,7 +10,7 @@ function renderCurrentWeatherHTML(weatherObj) {
 
   currentConditionEle.innerHTML = "";
   currentConditionEle.innerHTML += `<h2>Current Conditions</h2>
-        <img src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" />
+        <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" />
         <div class="current">
           <div class="temp">${temp}℃</div>
           <div class="condition">${weatherDiscription}</div>
@@ -31,7 +31,7 @@ function renderWeatherForecastHTML(weatherArray){
   `
   <div class="day">
   <h3>${day}</h3>
-  <img src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" />
+  <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" />
   <div class="description">${weatherDiscription}</div>
   <div class="temp">
     <span class="high">${tempMax}℃</span>/<span class="low">${tempMin}℃</span>
@@ -43,7 +43,7 @@ function renderWeatherForecastHTML(weatherArray){
   }
 }
 const getCurrentWeather = async (cityName) => {
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
   const response = await fetch(url);
   const data = await response.json();
 
@@ -66,3 +66,5 @@ getCurrentWeather(cityName).then((data) => {
 getWeatherForecast(cityName).then((data) => {
   renderWeatherForecastHTML(data.list);
 });
+
+
